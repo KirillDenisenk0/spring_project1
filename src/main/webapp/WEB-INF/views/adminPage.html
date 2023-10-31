@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SET ADMIN</title>
+</head>
+<body>
+
+<form th:method="PATCH" action="@{/admin/add}">
+    <label for="person">CHOOSE PERSON: </label>
+    <select th:object="${person}" th:field="*{id}" id="person">  <!-- в th:field  указываем поле которое будет выбираться в это
+      м выпадающем списке -->
+        <option th:each="person:${people}" th:value="${person.getId()"
+        th:text="person.getName()">  <!-- в теге th:text  отображается,что будет пользователь нажимать в списке,
+         а в th:value указывается что будет отправленно на сервер при выборе из th:text при выборе имени человека будетт отправлен его Id-->
+        </option>
+    </select>
+
+    <input type="submit" value="Set admin!"/>
+</form>
+
+</body>
+</html>
